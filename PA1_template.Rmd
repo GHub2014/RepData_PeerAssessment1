@@ -68,6 +68,7 @@ NArows
 NAframe <- as.data.frame(activity)
 NAframe[is.na(NAframe)] <- y
 ```
+I replaced all NAs with the mean of how may steps were taken during each interval across all days (object y - created in the "What is the average daily activity pattern?" section).
 
 3. Create a new dataset that is equal to the original dataset but with the missing data filled in.
 ```{r, echo = TRUE}
@@ -86,8 +87,7 @@ mean
 median <- median(q)
 median
 ```
-Explanation of results. I replaced all NAs with the mean of how may steps were taken during each interval across all days, object y. With the NA's omitted, the mean was 10766.19 and the median was
-10765.
+Explanation of results. The values do differ. I replaced all NAs with the mean of how may steps were taken during each interval across all days (object y). With the NAs omitted, the mean was 10766.19 and the median was 10765.
 
 When the NAs are replaced with object y, the new mean is 9354.23 and the new median is 10395. By inputting the averages, both the mean and median decreased.
 
@@ -102,11 +102,18 @@ Weekbind <- cbind(Datesbind,Weekdays)
 
 DayEnd <- ifelse(Weekdays  %in% c("Monday","Tuesday","Wednesday","Thursday","Friday"), 'weekday', 'weekend')
 DayEndFactor <- factor(DayEnd)
-DayEndFactor
+head(DayEndFactor)
 ```
 DayEndFactor represents the two levels of the factor: weekday weekend
 
 2. Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). The plot should look something like the following, which was creating using simulated data:
 
 ```{r, echo = TRUE}
+
+```
+
+```{r, echo = TRUE}
+library(knitr)
+library(markdown)
+knit("PA1_template.Rmd")
 ```
